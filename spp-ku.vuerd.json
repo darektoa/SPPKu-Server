@@ -3,8 +3,8 @@
     "version": "2.2.10",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1253,
-    "scrollLeft": -1495,
+    "scrollTop": -1298,
+    "scrollLeft": -1339,
     "zoomLevel": 0.4,
     "show": {
       "tableComment": true,
@@ -291,13 +291,36 @@
               "widthDefault": 60
             },
             "id": "a9100756-5b16-4294-ba1d-68b5a63f24a5"
+          },
+          {
+            "name": "balance",
+            "comment": "",
+            "dataType": "BIGINT(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.45361328125,
+              "widthDefault": 60
+            },
+            "id": "1e53ae4b-c0dc-44a8-a049-4ef5fd0470f2"
           }
         ],
         "ui": {
           "active": false,
           "left": 1030.2213,
           "top": 158.253,
-          "zIndex": 79,
+          "zIndex": 237,
           "widthName": 60,
           "widthComment": 60
         },
@@ -353,13 +376,36 @@
               "widthDefault": 60
             },
             "id": "6f723bdd-1334-45c1-a256-9fd478e3a398"
+          },
+          {
+            "name": "balance",
+            "comment": "",
+            "dataType": "BIGINT(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.45361328125,
+              "widthDefault": 60
+            },
+            "id": "d0ef112b-1936-4d22-8d9b-ed6e352eb2a2"
           }
         ],
         "ui": {
           "active": false,
           "left": 983.3612,
           "top": 1282.0823,
-          "zIndex": 188,
+          "zIndex": 243,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2B1515AA"
@@ -621,8 +667,8 @@
         "ui": {
           "active": false,
           "left": 1533.0829,
-          "top": 108.0026,
-          "zIndex": 226,
+          "top": 118.0026,
+          "zIndex": 246,
           "widthName": 60,
           "widthComment": 60
         },
@@ -866,9 +912,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1991.2624,
-          "top": 604.9756,
-          "zIndex": 229,
+          "left": 1986.2624,
+          "top": 629.9756,
+          "zIndex": 248,
           "widthName": 60,
           "widthComment": 60
         },
@@ -974,9 +1020,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 113.9164,
-          "top": 661.1696,
-          "zIndex": 223,
+          "left": 106.7734,
+          "top": 681.17,
+          "zIndex": 232,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1128,9 +1174,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1544.3925,
-          "top": 1239.1413,
-          "zIndex": 224,
+          "left": 1549.3925,
+          "top": 1249.1413,
+          "zIndex": 247,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1164,7 +1210,7 @@
             "a9100756-5b16-4294-ba1d-68b5a63f24a5"
           ],
           "x": 1030.2213,
-          "y": 213.253,
+          "y": 223.503,
           "direction": "left"
         },
         "constraintName": "fk_users_to_admins",
@@ -1190,7 +1236,7 @@
             "6f723bdd-1334-45c1-a256-9fd478e3a398"
           ],
           "x": 983.3612,
-          "y": 1337.0823,
+          "y": 1347.3323,
           "direction": "left"
         },
         "constraintName": "fk_users_to_payers",
@@ -1233,7 +1279,7 @@
             "12943bcf-506b-4d9a-830d-86dc63648817"
           ],
           "x": 1385.67491328125,
-          "y": 213.253,
+          "y": 223.503,
           "direction": "right"
         },
         "end": {
@@ -1242,7 +1288,7 @@
             "409aba47-ecb7-493e-875b-9a36505ce0ce"
           ],
           "x": 1533.0829,
-          "y": 214.2526,
+          "y": 224.2526,
           "direction": "left"
         },
         "constraintName": "fk_schools_to_classes",
@@ -1259,7 +1305,7 @@
             "a24c2abd-4452-4999-972b-451f359a7427"
           ],
           "x": 1914.8651265625,
-          "y": 214.2526,
+          "y": 224.2526,
           "direction": "right"
         },
         "end": {
@@ -1267,8 +1313,8 @@
           "columnIds": [
             "ac168f71-d482-47c1-92eb-2cb6adb40c33"
           ],
-          "x": 2185.768503515625,
-          "y": 604.9756,
+          "x": 2180.768503515625,
+          "y": 629.9756,
           "direction": "top"
         },
         "constraintName": "fk_classes_to_students",
@@ -1284,8 +1330,8 @@
           "columnIds": [
             "ca3a66c5-c891-431e-a4d4-ae3b9d9d9596"
           ],
-          "x": 2185.768503515625,
-          "y": 878.9756,
+          "x": 2180.768503515625,
+          "y": 903.9756,
           "direction": "bottom"
         },
         "end": {
@@ -1293,8 +1339,8 @@
           "columnIds": [
             "eb8bcb7c-aed5-460e-a42e-3b71c5d175f7"
           ],
-          "x": 1915.32658203125,
-          "y": 1335.1413,
+          "x": 1920.32658203125,
+          "y": 1345.1413,
           "direction": "right"
         },
         "constraintName": "fk_students_to_childs",
@@ -1311,7 +1357,7 @@
             "76ad3082-4f21-4d8b-b13f-c57c0a9dc5da"
           ],
           "x": 1338.81481328125,
-          "y": 1337.0823,
+          "y": 1347.3323,
           "direction": "right"
         },
         "end": {
@@ -1319,8 +1365,8 @@
           "columnIds": [
             "9e4da76b-efdb-496a-aacb-bb24a9b41123"
           ],
-          "x": 1544.3925,
-          "y": 1335.1413,
+          "x": 1549.3925,
+          "y": 1345.1413,
           "direction": "left"
         },
         "constraintName": "fk_payers_to_childs",
