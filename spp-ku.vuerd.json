@@ -3,9 +3,9 @@
     "version": "2.2.10",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1298,
-    "scrollLeft": -1339,
-    "zoomLevel": 0.4,
+    "scrollTop": -939,
+    "scrollLeft": -807,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -296,7 +296,7 @@
             "name": "balance",
             "comment": "",
             "dataType": "BIGINT(20)",
-            "default": "",
+            "default": "0",
             "option": {
               "autoIncrement": false,
               "primaryKey": false,
@@ -320,7 +320,7 @@
           "active": false,
           "left": 1030.2213,
           "top": 158.253,
-          "zIndex": 237,
+          "zIndex": 257,
           "widthName": 60,
           "widthComment": 60
         },
@@ -381,7 +381,7 @@
             "name": "balance",
             "comment": "",
             "dataType": "BIGINT(20)",
-            "default": "",
+            "default": "0",
             "option": {
               "autoIncrement": false,
               "primaryKey": false,
@@ -405,7 +405,7 @@
           "active": false,
           "left": 983.3612,
           "top": 1282.0823,
-          "zIndex": 243,
+          "zIndex": 255,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2B1515AA"
@@ -912,8 +912,8 @@
         ],
         "ui": {
           "active": false,
-          "left": 1986.2624,
-          "top": 629.9756,
+          "left": 1991.2624,
+          "top": 604.9756,
           "zIndex": 248,
           "widthName": 60,
           "widthComment": 60
@@ -1313,8 +1313,8 @@
           "columnIds": [
             "ac168f71-d482-47c1-92eb-2cb6adb40c33"
           ],
-          "x": 2180.768503515625,
-          "y": 629.9756,
+          "x": 2185.768503515625,
+          "y": 604.9756,
           "direction": "top"
         },
         "constraintName": "fk_classes_to_students",
@@ -1330,8 +1330,8 @@
           "columnIds": [
             "ca3a66c5-c891-431e-a4d4-ae3b9d9d9596"
           ],
-          "x": 2180.768503515625,
-          "y": 903.9756,
+          "x": 2185.768503515625,
+          "y": 878.9756,
           "direction": "bottom"
         },
         "end": {
