@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\ErrorException;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\{Hash, Validator};
@@ -37,7 +36,7 @@ class AuthController extends Controller
 			return response()->json([
 				'status'	=> $errCode,
 				'message'	=> $errMessage,
-				'errors'	=> $errData
+				'errors'	=> $errData,
 			], $errCode);
 		}
     }
@@ -51,11 +50,8 @@ class AuthController extends Controller
 				'password'  => 'required|min:8|max:50',
 			]);
 	
-			if($validator->fails()) return response()->json([
-				'status'    => 422,
-				'message'   => 'Unprocessable, Invalid field',
-				'errors'    => $validator->errors()->all(),
-			]);
+			if($validator->fails())
+				throw new ErrorException('Unprocessable', 422, $validator->errors()->all());
 	
 			$user = User::create([
 				'name'      => $request->name,
@@ -69,13 +65,15 @@ class AuthController extends Controller
 				'message'   => 'OK',
 				'data'      => $user
 			]);
-		}catch(Exception $err) {
+		}catch(ErrorException $err) {
 			$errCode	= $err->getCode() ?: 400;
 			$errMessage	= $err->getMessage();
+			$errData	= $err->getErrors();
 
 			return response()->json([
 				'status'	=> $errCode,
 				'message'	=> $errMessage,
+				'errors'	=> $errData,
 			], $errCode);
 		}
     }
