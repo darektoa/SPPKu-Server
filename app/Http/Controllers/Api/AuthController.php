@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Exceptions\ErrorException;
+use App\Helpers\UsernameHelper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,7 +57,7 @@ class AuthController extends Controller
 			$user = User::create([
 				'name'      => $request->name,
 				'email'     => $request->email,
-				'username'	=> 'Test',
+				'username'	=> UsernameHelper::make($request->email),
 				'password'  => Hash::make($request->password)
 			]);
 	
