@@ -30,4 +30,10 @@ class UsernameHelper{
 
 		return $string;
 	}
+
+
+	static public function email(string $email) {
+		$emailName	= explode('@', $email)[0];
+		return self::make($emailName);
+	}
 }
