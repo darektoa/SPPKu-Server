@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\ErrorException;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
@@ -12,26 +13,33 @@ use Illuminate\Support\Facades\{Hash, Validator};
 class AuthController extends Controller
 {
     public function register(Request $request) {
-        $validator = Validator::make($request->all(), [
-            'register_as' => 'required|alpha_dash',
-        ]);
+		try{
+			$registerAs = Str::lower($request->register_as);
+			$validator	= Validator::make($request->all(), [
+				'register_as' => 'required|alpha_dash',
+			]);
+	
+			if($validator->fails()) 
+				throw new ErrorException('Unprocessable', 422, $validator->errors()->all());
+			if($registerAs === 'user')
+				return $this->payerRegister($request);
+			if($registerAs === 'school')
+				return '';
+	
+			throw new ErrorException('Unprocessable', 422, [
+				'Unknown value of register_as field'
+			]);
+		}catch(ErrorException $err) {
+			$errCode	= $err->getCode() ?: 400;
+			$errMessage = $err->getMessage();
+			$errData	= $err->getErrors();
 
-        if($validator->fails()) return response()->json([
-			'status'    => 422,
-			'message'   => 'Unprocessable',
-			'errors'    => $validator->errors()->all(),
-		]);
-
-        $registerAs = Str::lower($request->register_as);
-
-        if($registerAs === 'user') return $this->payerRegister($request);
-        if($registerAs === 'school') return '';
-
-        return response()->json([
-            'status'    => 422,
-            'message'   => 'Unprocessable',
-            'errors'    => ['Unknown value of register_as field']
-        ]);
+			return response()->json([
+				'status'	=> $errCode,
+				'message'	=> $errMessage,
+				'errors'	=> $errData
+			], $errCode);
+		}
     }
 
 
