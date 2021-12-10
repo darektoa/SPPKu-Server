@@ -12,7 +12,6 @@ class UsernameHelper{
 		$rules		= 'regex:/[a-z0-9\._]{5,15}/i|unique:users,username';
 		$validator	= validator::make([$string], [0 => $rules]);
 		$unique		= false;
-
 		if($validator->fails())
 			$string	= Str::limit($string, 15, '');
 		else
@@ -20,7 +19,7 @@ class UsernameHelper{
 
 		while(!$unique) {
 			$newString	= $string . rand(0, 99999);
-			$validator	= Validator::make([$string], [0 => $rules]);
+			$validator	= Validator::make([$newString], [0 => $rules]);
 
 			if($validator->fails()) continue;
 
