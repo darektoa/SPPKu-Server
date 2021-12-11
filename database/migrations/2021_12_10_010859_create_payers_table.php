@@ -16,7 +16,7 @@ class CreatePayersTable extends Migration
         Schema::create('payers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->bigInteger('balance');
+            $table->bigInteger('balance')->default(0);
         });
     }
 
