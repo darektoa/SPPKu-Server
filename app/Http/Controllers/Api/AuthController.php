@@ -60,6 +60,8 @@ class AuthController extends Controller
 				'username'	=> UsernameHelper::email($request->email),
 				'password'  => Hash::make($request->password)
 			]);
+
+			$user->player()->create();
 	
 			return response()->json([
 				'status'    => 200,
