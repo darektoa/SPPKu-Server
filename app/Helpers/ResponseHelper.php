@@ -10,4 +10,13 @@ class ResponseHelper {
             'data'    => $data,
         ], $status);
     }
+
+
+    static public function error($errors=[], string $message='Failed', $status=500) {
+        return response()->json([
+            'status'    => $status,
+            'message'   => $message,
+            'errors'    => $errors,
+        ], $status);
+    }
 }
