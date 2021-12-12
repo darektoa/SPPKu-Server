@@ -24,7 +24,7 @@ class AuthController extends Controller
 			if($registerAs === 'user')
 				return $this->payerRegister($request);
 			if($registerAs === 'school')
-				return '';
+				return $this->schoolRegister($request);
 	
 			throw new ErrorException('Unprocessable', 422, [
 				'Unknown value of register_as field'
@@ -68,4 +68,35 @@ class AuthController extends Controller
 			);
 		}
     }
+
+
+	public function schoolRegister(Request $request) {
+		try{
+			$validator	= Validator::make($request->all(), [
+				'name'		=> 'required|min:3|max:50',
+				'email'		=> 'required|email|unique:users,email',
+				'password'	=> 'required|min:8|max:50'
+			]);
+
+			if($validator->fails())
+				throw new ErrorException('Unprocessable', 422, $validator->errors()->all());
+
+			$user = User::create([
+				'name'		=> $request->name,
+				'email'		=> $request->email,
+				'username'	=> UsernameHelper::email($request->email),
+				'password'	=> Hash::make($request->password),
+			]);
+			
+			$user->school()->create();
+
+			return ResponseHelper::make();
+		}catch(ErrorException $err) {
+			return ResponseHelper::error(
+				$err->getErrors(),
+				$err->getMessage(),
+				$err->getCode(),
+			);
+		}
+	}
 }
