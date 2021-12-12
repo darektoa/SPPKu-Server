@@ -10,4 +10,9 @@ class PersonalAccessToken extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+
+    public function tokenable() {
+        return $this->morphTo();
+    }
 }

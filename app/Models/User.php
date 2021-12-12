@@ -29,7 +29,13 @@ class User extends Authenticatable
         return $this->hasOne(Payer::class);
     }
 
+
     public function school() {
         return $this->hasOne(School::class);
+    }
+
+
+    public function tokens() {
+        return $this->morphMany(PersonalAccessToken::class, 'tokenable');
     }
 }
