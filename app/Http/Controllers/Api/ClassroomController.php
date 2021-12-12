@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\ErrorException;
 use App\Helpers\ResponseHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Classroom;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -42,6 +43,21 @@ class ClassroomController extends Controller
             ]);
 
             return ResponseHelper::make($classroom);
+        }catch(ErrorException $err) {
+            return ResponseHelper::error(
+                $err->getErrors(),
+                $err->getMessage(),
+                $err->getCode(),
+            );
+        }
+    }
+
+
+    public function indexStudents(Classroom $classroom) {
+        try{
+            $students = $classroom->students()->get();
+
+            return ResponseHelper::make($students);
         }catch(ErrorException $err) {
             return ResponseHelper::error(
                 $err->getErrors(),
