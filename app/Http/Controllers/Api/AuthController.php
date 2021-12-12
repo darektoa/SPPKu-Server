@@ -95,7 +95,7 @@ class AuthController extends Controller
 			
 			$user->school()->create();
 
-			return ResponseHelper::make();
+			return ResponseHelper::make($user);
 		}catch(ErrorException $err) {
 			return ResponseHelper::error(
 				$err->getErrors(),
