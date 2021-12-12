@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Exceptions\ErrorException;
-use App\Helpers\UsernameHelper;
+use App\Helpers\{UsernameHelper, ResponseHelper};
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -30,15 +30,11 @@ class AuthController extends Controller
 				'Unknown value of register_as field'
 			]);
 		}catch(ErrorException $err) {
-			$errCode	= $err->getCode() ?: 400;
-			$errMessage = $err->getMessage();
-			$errData	= $err->getErrors();
-
-			return response()->json([
-				'status'	=> $errCode,
-				'message'	=> $errMessage,
-				'errors'	=> $errData,
-			], $errCode);
+			return ResponseHelper::error(
+				$err->getErrors(),
+				$err->getMessage(),
+				$err->getCode(),
+			);
 		}
     }
 
@@ -62,22 +58,14 @@ class AuthController extends Controller
 			]);
 
 			$user->payer()->create();
-	
-			return response()->json([
-				'status'    => 200,
-				'message'   => 'OK',
-				'data'      => $user
-			]);
-		}catch(ErrorException $err) {
-			$errCode	= $err->getCode() ?: 400;
-			$errMessage	= $err->getMessage();
-			$errData	= $err->getErrors();
 
-			return response()->json([
-				'status'	=> $errCode,
-				'message'	=> $errMessage,
-				'errors'	=> $errData,
-			], $errCode);
+			return ResponseHelper::make($user);
+		}catch(ErrorException $err) {
+			return ResponseHelper::error(
+				$err->getErrors(),
+				$err->getMessage(),
+				$err->getCode(),
+			);
 		}
     }
 }
