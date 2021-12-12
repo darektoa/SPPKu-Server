@@ -5,13 +5,50 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\ErrorException;
 use App\Helpers\{UsernameHelper, ResponseHelper};
 use App\Http\Controllers\Controller;
-use App\Models\{PersonalAccessToken, User};
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\{Auth, Hash, Validator};
 
 class AuthController extends Controller
 {
+	public function login(Request $request) {
+		try{
+			$email		= $request->email;
+			$password	= $request->password;
+
+			// ACCOUNT EXISTENCE VALIDATION
+			if(
+				!User::where('email', '=', $email)
+				->orWhere('username', '=', $email)
+				->first()
+			) throw new ErrorException('Not found', ["Account doesn't exist"], 404);
+
+			// CREDENTIAL VALIDATION
+			if(!(
+				Auth::attempt(['email' => $email, 'password' => $password]) ||
+				Auth::attempt(['username' => $email, 'password' => $password ])
+			)) throw new ErrorException('Unauthorized', ["Account doesn't match"], 403);
+			
+			// CREATE LOGIN TOKEN
+			$userId	= auth()->user()->id;
+			$user	= User::find($userId);
+			$token 	= $user->tokens()->firstOrCreate(
+				[],
+				['token' => Hash::make($userId)],
+			);
+
+			return ResponseHelper::make($token);
+		}catch(ErrorException $err) {
+			return ResponseHelper::error(
+				$err->getErrors(),
+				$err->getMessage(),
+				$err->getCode(),
+			);
+		}
+	}
+
+
     public function register(Request $request) {
 		try{
 			$registerAs = Str::lower($request->register_as);
