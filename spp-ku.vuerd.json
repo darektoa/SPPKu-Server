@@ -3,8 +3,8 @@
     "version": "2.2.10",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -523,
-    "scrollLeft": -1145,
+    "scrollTop": -501,
+    "scrollLeft": -1179,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -499,7 +499,7 @@
         "id": "ba1ecdf5-0906-4384-9cb3-a9b64cdaceba"
       },
       {
-        "name": "classes",
+        "name": "classrooms",
         "comment": "",
         "columns": [
           {
@@ -666,10 +666,10 @@
         ],
         "ui": {
           "active": false,
-          "left": 1525.5829,
-          "top": 252.1692,
-          "zIndex": 6,
-          "widthName": 60,
+          "left": 1523.0829,
+          "top": 248.4192,
+          "zIndex": 14,
+          "widthName": 67.736328125,
           "widthComment": 60
         },
         "visible": true,
@@ -1825,8 +1825,8 @@
           "columnIds": [
             "409aba47-ecb7-493e-875b-9a36505ce0ce"
           ],
-          "x": 1525.5829,
-          "y": 358.4192,
+          "x": 1523.0829,
+          "y": 354.6692,
           "direction": "left"
         },
         "constraintName": "fk_schools_to_classes",
@@ -1842,8 +1842,8 @@
           "columnIds": [
             "a24c2abd-4452-4999-972b-451f359a7427"
           ],
-          "x": 1907.3651265625,
-          "y": 358.4192,
+          "x": 1904.8651265625,
+          "y": 354.6692,
           "direction": "right"
         },
         "end": {
