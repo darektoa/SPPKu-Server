@@ -3,8 +3,8 @@
     "version": "2.2.10",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -742,
-    "scrollLeft": -1042,
+    "scrollTop": -689,
+    "scrollLeft": -1668,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -726,6 +726,29 @@
             "id": "ac168f71-d482-47c1-92eb-2cb6adb40c33"
           },
           {
+            "name": "code",
+            "comment": "",
+            "dataType": "CHAR(8)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "c5d9bbd0-5ae0-43ef-b178-67c7ff784b04"
+          },
+          {
             "name": "name",
             "comment": "",
             "dataType": "VARCHAR(100)",
@@ -770,29 +793,6 @@
               "widthDefault": 60
             },
             "id": "7a509b4e-8fc6-473e-a129-48e258d3fcbc"
-          },
-          {
-            "name": "code",
-            "comment": "",
-            "dataType": "CHAR(8)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "c5d9bbd0-5ae0-43ef-b178-67c7ff784b04"
           },
           {
             "name": "birth_date",
@@ -934,10 +934,10 @@
           }
         ],
         "ui": {
-          "active": false,
+          "active": true,
           "left": 1993.7624,
           "top": 604.9756,
-          "zIndex": 21,
+          "zIndex": 24,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1443,9 +1443,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 2577.5628,
-          "top": 604.5983,
-          "zIndex": 3,
+          "left": 2571.3128,
+          "top": 612.0983,
+          "zIndex": 22,
           "widthName": 74.26806640625,
           "widthComment": 60
         },
@@ -1952,8 +1952,8 @@
           "columnIds": [
             "355dc928-75d8-4c88-90b6-5d0a9a59cd1f"
           ],
-          "x": 2577.5628,
-          "y": 741.5983,
+          "x": 2571.3128,
+          "y": 749.0983,
           "direction": "left"
         },
         "constraintName": "fk_students_to_student_bills",
