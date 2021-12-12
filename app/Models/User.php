@@ -28,4 +28,8 @@ class User extends Authenticatable
     public function payer() {
         return $this->hasOne(Payer::class);
     }
+
+    public function school() {
+        return $this->hasOne(School::class);
+    }
 }
