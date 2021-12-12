@@ -11,4 +11,9 @@ class Classroom extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded  = ['id'];
+
+
+    public function school() {
+        return $this->belongsTo(School::class);
+    }
 }
