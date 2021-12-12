@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\ErrorException;
 use App\Helpers\{UsernameHelper, ResponseHelper};
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -28,7 +29,7 @@ class AuthController extends Controller
 			if(!(
 				Auth::attempt(['email' => $email, 'password' => $password]) ||
 				Auth::attempt(['username' => $email, 'password' => $password ])
-			)) throw new ErrorException('Unauthorized', ["Account doesn't match"], 403);
+			)) throw new ErrorException('Unauthorized', ["Account doesn't match"], 401);
 			
 			// CREATE LOGIN TOKEN
 			$userId	= auth()->user()->id;
@@ -37,8 +38,9 @@ class AuthController extends Controller
 				[],
 				['token' => Hash::make($userId)],
 			);
+			$user->token = $token->token;
 
-			return ResponseHelper::make($token);
+			return ResponseHelper::make(UserResource::make($user));
 		}catch(ErrorException $err) {
 			return ResponseHelper::error(
 				$err->getErrors(),
@@ -99,7 +101,7 @@ class AuthController extends Controller
 
 			$user->payer()->create();
 
-			return ResponseHelper::make($user);
+			return ResponseHelper::make(UserResource::make($user));
 		}catch(ErrorException $err) {
 			return ResponseHelper::error(
 				$err->getErrors(),
@@ -132,7 +134,7 @@ class AuthController extends Controller
 			
 			$user->school()->create();
 
-			return ResponseHelper::make($user);
+			return ResponseHelper::make(UserResource::make($user));
 		}catch(ErrorException $err) {
 			return ResponseHelper::error(
 				$err->getErrors(),
