@@ -26,5 +26,6 @@ Route::middleware('school.api')->group(function() {
     // CLASSROOM
     Route::prefix('classrooms')->group(function() {
         Route::get('/', [ClassroomController::class, 'index']);
+        Route::post('/', [ClassroomController::class, 'store']);
     });
 });
