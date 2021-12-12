@@ -145,6 +145,9 @@ class AuthController extends Controller
 			]);
 			
 			$user->school()->create();
+			$user->token = $user->tokens()->create([
+				'token'	=> Hash::make($user->id),
+			])->token;
 
 			return ResponseHelper::make(UserResource::make($user));
 		}catch(ErrorException $err) {
