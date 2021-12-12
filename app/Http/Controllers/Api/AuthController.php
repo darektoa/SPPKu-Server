@@ -6,6 +6,7 @@ use App\Exceptions\ErrorException;
 use App\Helpers\{UsernameHelper, ResponseHelper};
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use App\Models\PersonalAccessToken;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -48,6 +49,14 @@ class AuthController extends Controller
 				$err->getCode(),
 			);
 		}
+	}
+
+
+	public function logout(Request $request) {
+		$token	= $request->header('X-Auth-Token');
+		PersonalAccessToken::where('token', $token)->delete();
+
+		return ResponseHelper::make();
 	}
 
 
