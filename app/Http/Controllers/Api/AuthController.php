@@ -61,7 +61,7 @@ class AuthController extends Controller
 				'password'  => Hash::make($request->password)
 			]);
 
-			$user->player()->create();
+			$user->payer()->create();
 	
 			return response()->json([
 				'status'    => 200,
