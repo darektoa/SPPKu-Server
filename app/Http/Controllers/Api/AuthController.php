@@ -19,12 +19,13 @@ class AuthController extends Controller
 				'register_as' => 'required|alpha_dash',
 			]);
 	
-			if($validator->fails()) 
-				throw new ErrorException('Unprocessable', $validator->errors()->all(), 422);
-			if($registerAs === 'user')
-				return $this->payerRegister($request);
-			if($registerAs === 'school')
-				return $this->schoolRegister($request);
+			if($validator->fails()) {
+				$errors	= $validator->errors()->all();	
+				throw new ErrorException('Unprocessable', $errors, 422);
+			}
+
+			if($registerAs === 'user') return $this->payerRegister($request);
+			if($registerAs === 'school') return $this->schoolRegister($request);
 	
 			throw new ErrorException('Unprocessable', [
 				'Unknown value of register_as field'
@@ -47,8 +48,10 @@ class AuthController extends Controller
 				'password'  => 'required|min:8|max:50',
 			]);
 	
-			if($validator->fails())
-				throw new ErrorException('Unprocessable', $validator->errors()->all(), 422);
+			if($validator->fails()) {
+				$errors = $validator->errors()->all();
+				throw new ErrorException('Unprocessable', $errors, 422);
+			}
 	
 			$user = User::create([
 				'name'      => $request->name,
@@ -78,8 +81,10 @@ class AuthController extends Controller
 				'password'	=> 'required|min:8|max:50'
 			]);
 
-			if($validator->fails())
-				throw new ErrorException('Unprocessable', $validator->errors()->all(), 422);
+			if($validator->fails()) {
+				$errors = $validator->errors()->all();
+				throw new ErrorException('Unprocessable', $errors, 422);
+			}
 
 			$user = User::create([
 				'name'		=> $request->name,
