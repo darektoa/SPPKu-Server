@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\ErrorException;
 use App\Helpers\{UsernameHelper, ResponseHelper};
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\{PersonalAccessToken, User};
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\{Hash, Validator};
+use Illuminate\Support\Facades\{Auth, Hash, Validator};
 
 class AuthController extends Controller
 {
@@ -20,15 +20,15 @@ class AuthController extends Controller
 			]);
 	
 			if($validator->fails()) 
-				throw new ErrorException('Unprocessable', 422, $validator->errors()->all());
+				throw new ErrorException('Unprocessable', $validator->errors()->all(), 422);
 			if($registerAs === 'user')
 				return $this->payerRegister($request);
 			if($registerAs === 'school')
 				return $this->schoolRegister($request);
 	
-			throw new ErrorException('Unprocessable', 422, [
+			throw new ErrorException('Unprocessable', [
 				'Unknown value of register_as field'
-			]);
+			], 422);
 		}catch(ErrorException $err) {
 			return ResponseHelper::error(
 				$err->getErrors(),
@@ -48,7 +48,7 @@ class AuthController extends Controller
 			]);
 	
 			if($validator->fails())
-				throw new ErrorException('Unprocessable', 422, $validator->errors()->all());
+				throw new ErrorException('Unprocessable', $validator->errors()->all(), 422);
 	
 			$user = User::create([
 				'name'      => $request->name,
@@ -79,7 +79,7 @@ class AuthController extends Controller
 			]);
 
 			if($validator->fails())
-				throw new ErrorException('Unprocessable', 422, $validator->errors()->all());
+				throw new ErrorException('Unprocessable', $validator->errors()->all(), 422);
 
 			$user = User::create([
 				'name'		=> $request->name,
