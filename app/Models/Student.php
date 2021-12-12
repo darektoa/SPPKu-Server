@@ -11,4 +11,9 @@ class Student extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded  = ['id'];
+
+
+    public function classroom() {
+        $this->belongsTo(Classroom::class);
+    }
 }
