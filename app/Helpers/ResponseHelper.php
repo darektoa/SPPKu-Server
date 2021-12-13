@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use Illuminate\Http\Resources\Json\JsonResource;
+
 class ResponseHelper {
     static public function make($data=[], string $message='OK', $status=200) {
         return response()->json([
@@ -18,5 +20,17 @@ class ResponseHelper {
             'message'   => $message,
             'errors'    => $errors,
         ], $status);
+    }
+
+
+    static public function paginate($data=[], string $message='OK', $status=200, ?JsonResource $resource=null) {
+        $response = collect([
+            'status'    => $status,
+            'message'   => $message,
+        ])->merge($data);
+
+        if($resource) $response->merge(['data' => $resource($data)]);
+
+        return response()->json($response);
     }
 }
