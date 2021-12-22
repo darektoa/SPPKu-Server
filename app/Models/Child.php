@@ -10,4 +10,9 @@ class Child extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded  = ['id'];
+
+
+    public function payer() {
+        return $this->belongsTo(Payer::class);
+    }
 }
