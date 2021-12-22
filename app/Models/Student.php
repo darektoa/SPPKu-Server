@@ -18,7 +18,7 @@ class Student extends Model
     }
 
 
-    public function childs() {
+    public function children() {
         return $this->hasMany(Child::class);
     }
 }
