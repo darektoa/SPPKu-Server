@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\ErrorException;
 use App\Helpers\ResponseHelper;
 use App\Http\Controllers\Controller;
-use App\Models\{Student, User};
+use App\Models\{Child, Student, User};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -40,6 +40,25 @@ class ChildController extends Controller
             $child    = $payer->children()->firstOrCreate([
                 'student_id'  => $student->id,
             ]);
+
+            return ResponseHelper::make($child);
+        }catch(ErrorException $err) {
+            return ResponseHelper::error(
+                $err->getErrors(),
+                $err->getMessage(),
+                $err->getCode(),
+            );
+        }
+    }
+
+
+    public function show(Child $child) {
+        try{
+            $child = $child->load('student');
+            $payer = auth()->user()->payer;
+
+            if($child->payer->id !== $payer->id)
+                throw new ErrorException('Forbidden', ['Forbidden to access'], 403);
 
             return ResponseHelper::make($child);
         }catch(ErrorException $err) {
