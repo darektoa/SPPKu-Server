@@ -1,11 +1,11 @@
 {
   "canvas": {
-    "version": "2.2.10",
+    "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -792,
-    "scrollLeft": -1706,
-    "zoomLevel": 1,
+    "scrollTop": -1305,
+    "scrollLeft": -1625,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -235,7 +235,7 @@
           "active": false,
           "left": 701.0833,
           "top": 890.3329,
-          "zIndex": 60,
+          "zIndex": 8,
           "widthName": 60,
           "widthComment": 60
         },
@@ -320,7 +320,7 @@
           "active": false,
           "left": 1161.8879,
           "top": 347.4196,
-          "zIndex": 42,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -405,7 +405,7 @@
           "active": false,
           "left": 1185.8612,
           "top": 1507.0823,
-          "zIndex": 36,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2B1515AA"
@@ -560,7 +560,7 @@
           "active": false,
           "left": 1189.2528,
           "top": 614.3614,
-          "zIndex": 80,
+          "zIndex": 11,
           "widthName": 145.0888671875,
           "widthComment": 60
         },
@@ -737,7 +737,7 @@
           "active": false,
           "left": 1663.0829,
           "top": 305.9192,
-          "zIndex": 43,
+          "zIndex": 7,
           "widthName": 67.736328125,
           "widthComment": 60
         },
@@ -772,7 +772,7 @@
             "id": "ca3a66c5-c891-431e-a4d4-ae3b9d9d9596"
           },
           {
-            "name": "class_id",
+            "name": "classroom_id",
             "comment": "",
             "dataType": "BIGINT(20)",
             "default": "",
@@ -787,7 +787,7 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 60,
+              "widthName": 78.58447265625,
               "widthComment": 60,
               "widthDataType": 68.45361328125,
               "widthDefault": 60
@@ -1006,7 +1006,7 @@
           "active": false,
           "left": 2148.7624,
           "top": 854.9756,
-          "zIndex": 33,
+          "zIndex": 14,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1122,7 +1122,7 @@
         "id": "fa124242-cb78-4660-b5f3-bab845c7d87e"
       },
       {
-        "name": "childs",
+        "name": "children",
         "comment": "",
         "columns": [
           {
@@ -1268,7 +1268,7 @@
           "active": false,
           "left": 1751.8925,
           "top": 1474.1413,
-          "zIndex": 38,
+          "zIndex": 16,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1514,7 +1514,7 @@
           "active": false,
           "left": 2726.3128,
           "top": 862.0983,
-          "zIndex": 22,
+          "zIndex": 2,
           "widthName": 74.26806640625,
           "widthComment": 60
         },
@@ -1806,7 +1806,7 @@
           "active": false,
           "left": 1190.2487,
           "top": 851.167,
-          "zIndex": 79,
+          "zIndex": 10,
           "widthName": 72.0908203125,
           "widthComment": 60
         },
@@ -1960,7 +1960,7 @@
           "active": false,
           "left": 1193.2498,
           "top": 1209.5837,
-          "zIndex": 73,
+          "zIndex": 9,
           "widthName": 63.42626953125,
           "widthComment": 60
         },
@@ -2097,7 +2097,7 @@
           "columnIds": [
             "ac168f71-d482-47c1-92eb-2cb6adb40c33"
           ],
-          "x": 2343.268503515625,
+          "x": 2349.0290015625,
           "y": 854.9756,
           "direction": "top"
         },
@@ -2114,7 +2114,7 @@
           "columnIds": [
             "ca3a66c5-c891-431e-a4d4-ae3b9d9d9596"
           ],
-          "x": 2343.268503515625,
+          "x": 2349.0290015625,
           "y": 1149.4756,
           "direction": "bottom"
         },
@@ -2166,7 +2166,7 @@
           "columnIds": [
             "ca3a66c5-c891-431e-a4d4-ae3b9d9d9596"
           ],
-          "x": 2537.77460703125,
+          "x": 2549.295603125,
           "y": 1002.2256,
           "direction": "right"
         },
