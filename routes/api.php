@@ -42,5 +42,6 @@ Route::middleware('payer.api')->group(function() {
     Route::prefix('/children')->group(function() {
         Route::get('/', [ChildController::class, 'index']);
         Route::post('/', [ChildController::class, 'store']);
+        Route::get('/{child:id}', [ChildController::class, 'show']);
     });
 });
