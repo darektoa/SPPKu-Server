@@ -15,4 +15,9 @@ class Child extends Model
     public function payer() {
         return $this->belongsTo(Payer::class);
     }
+
+
+    public function student() {
+        return $this->belongsTo(Student::class);
+    }
 }
